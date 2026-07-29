@@ -12,6 +12,6 @@ class StoreController extends Controller
      */
     public function __invoke(Request $request )
     {
-        return "this is the page for storing a new school class";
+        return "ini adalah halaman untuk menyimpan kelas sekolah baru";
     }
 }

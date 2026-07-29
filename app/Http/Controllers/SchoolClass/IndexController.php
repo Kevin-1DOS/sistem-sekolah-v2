@@ -12,6 +12,6 @@ class IndexController extends Controller
      */
     public function __invoke()
     {
-        return "this is the school class management page";
+        return "ini adalah halaman manajemen kelas sekolah";
     }
 }

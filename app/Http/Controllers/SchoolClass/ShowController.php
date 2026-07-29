@@ -12,6 +12,6 @@ class ShowController extends Controller
      */
     public function __invoke($id)
     {
-        return "this is the page for showing a school class with id: $id";
+        return "ini adalah halaman untuk menampilkan kelas sekolah dengan ID: {$id}";
     }
 }

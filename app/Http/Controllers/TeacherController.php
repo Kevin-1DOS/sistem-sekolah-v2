@@ -8,35 +8,35 @@ class TeacherController extends Controller
 {
        public function index()
     {
-        return "this is the teacher management page";
+        return "ini adalah halaman manajemen guru";
     }
 
     public function show($id)
     {
-        return "this is the detail page for teacher with ID: {$id}";
+        return "ini adalah halaman detail untuk guru dengan ID: {$id}";
     }
 
     public function create()
     {
-        return "this is the page for creating a new teacher";
+        return "ini adalah halaman untuk membuat guru baru";
     }
     public function store(Request $request)
     {
-        return "this is the page for storing new teacher data";
+        return "ini adalah halaman untuk menyimpan data guru baru";
     }
 
     public function edit($id)
     {
-        return "this is the page for editing teacher with ID: {$id}";
+        return "ini adalah halaman untuk mengedit guru dengan ID: {$id}";
     }
 
     public function update(Request $request, $id)
     {
-        return "this is the page for updating teacher with ID: {$id}";
+        return "ini adalah halaman untuk memperbarui guru dengan ID: {$id}";
     }
 
     public function destroy($id)
     {
-        return "this is the page for deleting teacher with ID: {$id}";
+        return "ini adalah halaman untuk menghapus guru dengan ID: {$id}";
     } 
 }

@@ -8,35 +8,69 @@ class StudentController extends Controller
 {
     public function index()
     {
-        return "this is the student management page";
+        $title = "Sistem Sekolah - Daftar Siswa";
+        $students = [
+            [
+                'id' => 1,
+                'nis' => '1234567890',
+                'name' => 'Jiyan',
+                'class' => 'XII TKJ 1',
+                'major' => 'TKJ'
+            ],
+            [
+                'id' => 2,
+                'nis' => '1234567891',
+                'name' => 'Dornado',
+                'class' => 'XII AKL 2',
+                'major' => 'AKL'
+            ]
+        ];
+        return view("students.index", [
+            'title' => $title,
+            'students' => $students
+        ]);
     }
 
     public function show($id)
     {
-        return "this is the detail page for student with ID: {$id}";
+        $title = "Sistem Sekolah - Detail Siswa";
+
+        return view("students.show", [
+            'title' => $title
+        ]);
     }
 
     public function create()
     {
-        return "this is the page for creating a new student";
-    }
-    public function store(Request $request)
-    {
-        return "this is the page for storing new student data";
+        $title = "Sistem Sekolah - Catat Siswa Baru";
+
+        return view("students.create", [
+            'title' => $title
+        ]);
     }
 
-    public function edit($id)
+        public function edit($id)
     {
-        return "this is the page for editing student with ID: {$id}";
+        $title = "Sistem Sekolah - Edit Siswa";
+        return view("students.edit", [
+            'title' => $title
+        ]);
     }
+
+    public function store(Request $request)
+    {
+        return "ini adalah halaman untuk menyimpan data siswa baru";
+    }
+
+
 
     public function update(Request $request, $id)
     {
-        return "this is the page for updating student with ID: {$id}";
+        return "ini adalah halaman untuk memperbarui siswa dengan ID: {$id}";
     }
 
     public function destroy($id)
     {
-        return "this is the page for deleting student with ID: {$id}";
+        return "ini adalah halaman untuk menghapus siswa dengan ID: {$id}";
     }
 };

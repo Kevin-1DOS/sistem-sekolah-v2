@@ -12,6 +12,6 @@ class DestroyController extends Controller
      */
     public function __invoke($id)
     {
-        return "this is the page for deleting a school class with id: $id";
+        return "ini adalah halaman untuk menghapus kelas sekolah dengan ID: {$id}";
     }
 }

@@ -12,6 +12,6 @@ class UpdateController extends Controller
      */
     public function __invoke(Request $request, $id)
     {
-        return "this is the page for updating a school class with id: $id";
+        return "ini adalah halaman untuk memperbarui kelas sekolah dengan ID: {$id}";
     }
 }
