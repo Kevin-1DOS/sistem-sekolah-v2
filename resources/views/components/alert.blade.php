@@ -1,4 +1,4 @@
-@props(['type' => 'SUCCESS'])
+
 
 @if ($type === 'error')
 <div class="border border-red-500 bg-red-100 rounded-lg p-4">

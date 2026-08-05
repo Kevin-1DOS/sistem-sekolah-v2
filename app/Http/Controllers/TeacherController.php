@@ -6,29 +6,69 @@ use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
-       public function index()
+    public function index()
     {
-        return "ini adalah halaman manajemen guru";
+        $title = "Sistem Sekolah - Daftar Guru";
+        $teachers = [
+            [
+                'id' => 1,
+                'nip' => '198501012024',
+                'name' => 'Budi Santoso',
+                'gender' => 'Laki-Laki',
+                'subject' => 'Akuntansi Dasar',
+                'phone' => '081234560001',
+                'status' => 'Aktif',
+            ],
+            [
+                'id' => 2,
+                'nip' => '198703152024',
+                'name' => 'Siti Aminah',
+                'gender' => 'Perempuan',
+                'subject' => 'Jaringan Komputer',
+                'phone' => '081234560002',
+                'status' => 'Aktif',
+            ]
+        ];
+        return view("teachers.index", [
+            'title' => $title,
+            'teachers' => $teachers
+        ]);
+
+
     }
 
     public function show($id)
     {
-        return "ini adalah halaman detail untuk guru dengan ID: {$id}";
+        $title = "Sistem Sekolah - Detail Guru";
+
+        return view("teachers.show", [
+            'title' => $title
+        ]);
     }
 
     public function create()
     {
-        return "ini adalah halaman untuk membuat guru baru";
+        $title = "Sistem Sekolah - Catat Guru Baru";
+
+        return view("teachers.create", [
+            'title' => $title
+        ]);
     }
+
+    public function edit($id)
+    {
+        $title = "Sistem Sekolah - Edit Guru";
+        return view("teachers.edit", [
+            'title' => $title
+        ]);
+    }
+
     public function store(Request $request)
     {
         return "ini adalah halaman untuk menyimpan data guru baru";
     }
 
-    public function edit($id)
-    {
-        return "ini adalah halaman untuk mengedit guru dengan ID: {$id}";
-    }
+
 
     public function update(Request $request, $id)
     {
@@ -38,5 +78,5 @@ class TeacherController extends Controller
     public function destroy($id)
     {
         return "ini adalah halaman untuk menghapus guru dengan ID: {$id}";
-    } 
+    }
 }
