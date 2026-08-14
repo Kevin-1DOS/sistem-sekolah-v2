@@ -6,9 +6,7 @@
 
     
 
-<x-alert type="SUCCESS">
-    testing
-</x-alert>
+
     <div class="mb-8 flex items-end justify-between border-b border-[#E5E3DB] pb-5">
         <div>
             <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Tahun Ajaran 2025/2026</p>
@@ -48,11 +46,11 @@
                         </td>
                         <td class="px-5 py-4">
                             <div class="flex justify-end gap-4 text-xs font-medium">
-                                <a href=""
+                                <a href="{{ route('majors.show', ['major' => $major['id']]) }}"
                                     class="text-[#16213A] hover:text-[#A16207]">Lihat</a>
-                                <a href=""
+                                <a href="{{ route('majors.edit', ['major' => $major['id']]) }}"
                                     class="text-[#16213A] hover:text-[#A16207]">Ubah</a>
-                                <form action="{{ route('majors.destroy', $major['id']) }}" method="POST"
+                                <form action="{{ route('majors.destroy', ['major' => $major['id']]) }}" method="POST"
                                     onsubmit="return confirm('Hapus data jurusan ini dari buku induk?')">
 
                                     <button type="submit" class="text-red-700 hover:text-red-900">Hapus</button>

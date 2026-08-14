@@ -5,10 +5,8 @@
 @section('content')
 
 
-<x-alert type="info">
-    Terjadi kesalahan saat memproses permintaan Anda. Silakan coba lagi nanti.
-</x-alert>
-<a href="#" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku
+
+<a href="{{ route('majors.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku
             Induk</a>
 
         <div class="mt-3 border border-[#E5E3DB] bg-white">

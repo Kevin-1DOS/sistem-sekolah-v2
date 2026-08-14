@@ -5,10 +5,7 @@
 @section('content')
 
 
-<x-alert type="info">
-    Terjadi kesalahan saat memproses permintaan Anda. Silakan coba lagi nanti.
-</x-alert>
-<a href="#" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku
+<a href="{{ route('teachers.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku
             Induk</a>
 
 
@@ -19,7 +16,7 @@
                     <h1 class="font-display text-3xl font-semibold text-[#16213A]">Budi Santoso</h1>
                     <p class="mt-1 font-mono text-xs text-slate-500">NIP 198501012024</p>
                 </div>
-                <a href="#"
+                <a href=""
                     class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">Ubah</a>
             </div>
 
@@ -42,7 +39,7 @@
                 </div>
                 <div class="flex justify-between px-8 py-4">
                     <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Status</dt>
-                    <dd class="font-medium text-[#16213A]">Aktif</dd>
+                    <dd class="font-medium text-[#16213A]"><x-status-badge :status="$teacher['status']" /></dd>
                 </div>
             </dl>
 

@@ -6,9 +6,7 @@
 
     
 
-<x-alert type="SUCCESS">
-    testing
-</x-alert>
+
     <div class="mb-8 flex items-end justify-between border-b border-[#E5E3DB] pb-5">
         <div>
             <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Tahun Ajaran 2025/2026</p>
@@ -56,15 +54,15 @@
                             {{ $teacher['phone'] }}
                         </td>
                         <td class="px-5 py-4">
-                            {{ $teacher['status'] }}
+                            <x-status-badge :status="$teacher['status']" />
                         </td>
                         <td class="px-5 py-4">
                             <div class="flex justify-end gap-4 text-xs font-medium">
-                                <a href="{{ route('teachers.show', ['id' => 1]) }}"
+                                <a href="{{ route('teachers.show', ['id' => $teacher['id']]) }}"
                                     class="text-[#16213A] hover:text-[#A16207]">Lihat</a>
-                                <a href="{{ route('teachers.edit', ['id' => 1]) }}"
+                                <a href="{{ route('teachers.edit', ['id' => $teacher['id']]) }}"
                                     class="text-[#16213A] hover:text-[#A16207]">Ubah</a>
-                                <form action="{{ route('teachers.destroy', $teacher['id']) }}" method="POST"
+                                <form action="{{ route('teachers.destroy', ['id' => $teacher['id']]) }}" method="POST"
                                     onsubmit="return confirm('Hapus data guru ini dari buku induk?')">
 
                                     <button type="submit" class="text-red-700 hover:text-red-900">Hapus</button>
