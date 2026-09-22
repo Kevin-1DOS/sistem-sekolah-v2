@@ -26,7 +26,7 @@
 
             <div>
                 <label for="grade"
-                    class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Kelas</label>
+                    class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Tingkat</label>
                 <select id="grade" name="grade"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
                     <option value="X" selected>X</option>
@@ -36,21 +36,25 @@
             </div>
 
             <div>
-                <label for="major"
-                    class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Mata Pelajaran</label>
-                <select id="major" name="major"
+                <label for="major_id"
+                    class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Jurusan</label>
+                <select id="major_id" name="major_id"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                    <option value="AKL" selected>Akuntansi Dasar</option>
-                    <option value="TKJ">Jaringan Komputer</option>
-                    <option value="BiD">Pemasaran</option>
+                    @foreach ($majors as $major)
+                        <option value="{{ $major['id'] }}" @selected($major['id'] === 1)>{{ $major['code'] }} - {{ $major['name'] }}</option>
+                    @endforeach
                 </select>
             </div>
 
             <div>
-                <label for="homeroom_teacher"
+                <label for="teacher_id"
                     class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Wali Kelas</label>
-                <input type="text" id="homeroom_teacher" name="homeroom_teacher" value="Budi Santoso"
+                <select id="teacher_id" name="teacher_id"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
+                    @foreach ($teachers as $teacher)
+                        <option value="{{ $teacher['id'] }}" @selected($teacher['id'] === 1)>{{ $teacher['name'] }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="flex justify-end gap-4 border-t border-[#EFEDE6] pt-6">

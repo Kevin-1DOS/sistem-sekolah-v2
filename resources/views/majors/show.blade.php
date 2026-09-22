@@ -13,12 +13,17 @@
             <div class="flex items-start justify-between border-b border-[#E5E3DB] bg-[#FCFBF8] px-8 py-6">
                 <div>
                     <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Lembar Jurusan</p>
-                    <h1 class="font-display text-3xl font-semibold text-[#16213A]">Akuntansi dan keuangan Lembaga</h1>
+                    <h1 class="font-display text-3xl font-semibold text-[#16213A]">Akuntansi dan Keuangan Lembaga</h1>
                     <p class="mt-1 font-mono text-xs text-slate-500">Kode Jurusan: AKL</p>
                 </div>
-                <a href="#"
+                <a href="{{ route('majors.edit', ['major' => 1]) }}"
                     class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">Ubah</a>
             </div>
+            <dl class="divide-y divide-[#EFEDE6] text-sm">
+                <div class="flex justify-between px-8 py-4">
+                    <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Nama Jurusan</dt>
+                    <dd class="font-medium text-[#16213A]">Akuntansi dan Keuangan Lembaga</dd>
+                </div>
                 <div class="flex justify-between px-8 py-4">
                     <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Deskripsi</dt>
                     <dd class="font-medium text-[#16213A]">Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.</dd>

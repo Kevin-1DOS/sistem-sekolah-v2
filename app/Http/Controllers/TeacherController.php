@@ -8,7 +8,7 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        $title = "Sistem Sekolah - Daftar Guru";
+        $title = 'Sistem Sekolah - Daftar Guru';
         $teachers = [
             [
                 'id' => 1,
@@ -16,8 +16,8 @@ class TeacherController extends Controller
                 'name' => 'Budi Santoso',
                 'gender' => 'Laki-Laki',
                 'subject' => 'Akuntansi Dasar',
-                'phone' => '081234560001',
-                'status' => 'active',
+                'phone_number' => '081234560001',
+                'status' => 'Aktif',
             ],
             [
                 'id' => 2,
@@ -25,21 +25,21 @@ class TeacherController extends Controller
                 'name' => 'Siti Aminah',
                 'gender' => 'Perempuan',
                 'subject' => 'Jaringan Komputer',
-                'phone' => '081234560002',
-                'status' => 'active',
-            ]
+                'phone_number' => '081234560002',
+                'status' => 'Aktif',
+            ],
         ];
-        return view("teachers.index", [
-            'title' => $title,
-            'teachers' => $teachers
-        ]);
 
+        return view('teachers.index', [
+            'title' => $title,
+            'teachers' => $teachers,
+        ]);
 
     }
 
     public function show($id)
     {
-        $title = "Sistem Sekolah - Detail Guru";
+        $title = 'Sistem Sekolah - Detail Guru';
         $teachers = [
             [
                 'id' => 1,
@@ -47,8 +47,8 @@ class TeacherController extends Controller
                 'name' => 'Budi Santoso',
                 'gender' => 'Laki-Laki',
                 'subject' => 'Akuntansi Dasar',
-                'phone' => '081234560001',
-                'status' => 'active',
+                'phone_number' => '081234560001',
+                'status' => 'Aktif',
             ],
             [
                 'id' => 2,
@@ -56,42 +56,40 @@ class TeacherController extends Controller
                 'name' => 'Siti Aminah',
                 'gender' => 'Perempuan',
                 'subject' => 'Jaringan Komputer',
-                'phone' => '081234560002',
-                'status' => 'active',
-            ]
+                'phone_number' => '081234560002',
+                'status' => 'Aktif',
+            ],
         ];
-       
 
-        return view("teachers.show", [
+        return view('teachers.show', [
             'title' => $title,
-            'teacher' => $teachers[$id - 1]
-           
+            'teacher' => $teachers[$id - 1],
+
         ]);
     }
 
     public function create()
     {
-        $title = "Sistem Sekolah - Catat Guru Baru";
+        $title = 'Sistem Sekolah - Catat Guru Baru';
 
-        return view("teachers.create", [
-            'title' => $title
+        return view('teachers.create', [
+            'title' => $title,
         ]);
     }
 
     public function edit($id)
     {
-        $title = "Sistem Sekolah - Edit Guru";
-        return view("teachers.edit", [
-            'title' => $title
+        $title = 'Sistem Sekolah - Edit Guru';
+
+        return view('teachers.edit', [
+            'title' => $title,
         ]);
     }
 
     public function store(Request $request)
     {
-        return "ini adalah halaman untuk menyimpan data guru baru";
+        return 'ini adalah halaman untuk menyimpan data guru baru';
     }
-
-
 
     public function update(Request $request, $id)
     {

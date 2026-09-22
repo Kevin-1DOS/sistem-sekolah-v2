@@ -11,15 +11,7 @@ class StatusBadge extends Component
     /**
      * Create a new component instance.
      */
-    public string $status;
-    
-    public function __construct(string $status)
-    {
-        $this->status = $status;
-    }
-    
-        //
-    
+    public function __construct(public string $status) {}
 
     /**
      * Get the view / contents that represent the component.
