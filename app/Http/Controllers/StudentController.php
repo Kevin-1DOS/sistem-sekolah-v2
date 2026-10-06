@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
+use App\Http\Requests\Student\StoreRequest;
+use App\Http\Requests\Student\UpdateRequest;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -9,34 +12,22 @@ class StudentController extends Controller
     public function index()
     {
         $title = "Sistem Sekolah - Daftar Siswa";
-        $students = [
-            [
-                'id' => 1,
-                'nis' => '1234567890',
-                'name' => 'Jiyan',
-                'class' => 'XII TKJ 1',
-                'major' => 'TKJ'
-            ],
-            [
-                'id' => 2,
-                'nis' => '1234567891',
-                'name' => 'Dornado',
-                'class' => 'XII AKL 2',
-                'major' => 'AKL'
-            ]
-        ];
+        $students = Student::select(['id', 'nis', 'name', 'class', 'major'])->get();
+
         return view("students.index", [
             'title' => $title,
             'students' => $students
         ]);
     }
 
-    public function show($id)
+    public function show(Student $student)
     {
+
         $title = "Sistem Sekolah - Detail Siswa";
 
         return view("students.show", [
-            'title' => $title
+            'title' => $title,
+            'student' => $student
         ]);
     }
 
@@ -49,28 +40,50 @@ class StudentController extends Controller
         ]);
     }
 
-        public function edit($id)
+    public function edit(Student $student)
     {
         $title = "Sistem Sekolah - Edit Siswa";
         return view("students.edit", [
-            'title' => $title
+            'title' => $title,
+            'student' => $student
         ]);
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        return "ini adalah halaman untuk menyimpan data siswa baru";
+        $validatedRequest = $request->validated();
+
+        //Tambahkan data ke Database
+        Student::create($validatedRequest);
+
+        //Handle if success
+        return redirect()->route('students.index');
     }
 
 
 
-    public function update(Request $request, $id)
+    public function update(Student $student, UpdateRequest $request)
     {
-        return "ini adalah halaman untuk memperbarui siswa dengan ID: {$id}";
+        $validatedRequest = $request->validated();
+
+        // Update data
+        $student->update($validatedRequest);
+
+        // if success
+        return redirect()->route('students.index');
+
     }
 
-    public function destroy($id)
+
+
+        
+    
+
+
+    public function destroy(Student $student)
     {
-        return "ini adalah halaman untuk menghapus siswa dengan ID: {$id}";
+        $student->delete();
+        return redirect()->route('students.index');
     }
-};
+}
+;
